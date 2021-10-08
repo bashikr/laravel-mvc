@@ -82,6 +82,10 @@ video {
     align-items: center
 }
 
+.items-top {
+    align-items:baseline;
+}
+
 .justify-center {
     justify-content: center
 }
@@ -276,6 +280,14 @@ video {
     grid-template-columns: repeat(1, minmax(0, 1fr))
 }
 
+.rotate-x {
+    transform: scaleX(2);
+}
+
+.rotate-y {
+    transform: scaleY(2);
+}
+
 @media (min-width:640px) {
     .sm\:rounded-lg {
         border-radius: .5rem
@@ -287,6 +299,10 @@ video {
 
     .sm\:items-center {
         align-items: center
+    }
+
+    .sm\:items-top {
+        align-items: baseline
     }
 
     .sm\:justify-start {

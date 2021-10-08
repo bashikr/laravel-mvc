@@ -7,22 +7,14 @@
     <div>
         @include('navbar')
     </div>
-    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-        @if (Route::has('login'))
-        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-            @auth
-            <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-            @else
-            <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-top py-4 sm:pt-0">
+        <div class="text-center" style="color: white;">
+            <h1>Hello World!</h1>
+            <p>This website is a part of the MVC course given at Blekinge Institute of Technology</p>
 
-            @if (Route::has('register'))
-            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-            @endif
-            @endauth
-        </div>
-        @endif
-        <div style="color: white;">
-            <h1>Hello World</h1>
+            <div class=" container jumbotron w-50 bg-white text-dark">
+                <img class="w-100" src="{{URL::asset('assets/image/laravel.jpg')}}" alt="Laravel">
+            </div>
         </div>
     </div>
 </body>

@@ -48,3 +48,7 @@ Route::get('/hello', 'App\Http\Controllers\HelloWorldController@hello');
 Route::get('/form', [FormController::class, 'index']);
 Route::post('/form/process', [FormController::class, 'process']);
 Route::get('/form/view', [FormController::class, 'view']);
+
+// Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
