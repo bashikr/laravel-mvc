@@ -11,3 +11,5 @@ RewriteRule (.*) /~baaa19/dbwebb-kurser/mvc/me/framework/laravel-app/public/inde
 # Rewrite 2 - For other requests
 RewriteCond %{HTTP_HOST} !^www\.student\.bth\.se$ [NC]
 RewriteRule (.*) index.php/$1 [NC,L]
+
+Options +SymLinksIfOwnerMatch
