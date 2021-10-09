@@ -25,7 +25,7 @@ class GameForm
             $request->session()->put('saveButtonVisibility', $game->saveButtonVisibility('visible', $whoWillPlay));
             return redirect("/game");
         } elseif ($reset) {
-            $request->session()->put('playersFinalSum');
+            $request->session()->put('playersFinalSum', null);
             return redirect("/dice100");
         } elseif ($save) {
             $game = $request->session()->get("game");

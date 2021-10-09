@@ -31,7 +31,7 @@ $request = request();
                     @endif
                 @endif
 
-                @if ($request->session()->get('playersFinalSum'))
+                @if ($request->session()->get('playersFinalSum') !== '')
                     <h3>The players' final scores:</h3>
                     <?= $request->session()->get('playersFinalSum') ?>
                 @endif

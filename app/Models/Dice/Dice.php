@@ -18,7 +18,7 @@ class Dice
     /**
      * Constructor to initiate the dicehand with a number of dices.
      *
-     * @param int $dices Number of dices to create, defaults to five.
+     * @param int $sides Number of dices to create, defaults to five.
      */
     public function __construct(int $sides = 6)
     {

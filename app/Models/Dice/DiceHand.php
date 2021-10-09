@@ -16,7 +16,7 @@ class DiceHand
     /**
      * Constructor to initiate the dicehand with a number of dices.
      *
-     * @param int $dices Number of dices to create, defaults to five.
+     * @param int $diceAmount Number of dices to create, defaults to five.
      */
     public function __construct(int $diceAmount = 5)
     {
@@ -31,9 +31,8 @@ class DiceHand
     public function rollHand()
     {
         for ($i = 0; $i < $this->diceAmount; $i++) {
-            $res = $this->dices[$i]->roll();
+            $this->dices[$i]->roll();
         }
-        return $res;
     }
 
     public function setValues()

@@ -5,6 +5,7 @@ class Game
 {
     /**
      * @var int $dice
+     * @var int $playerToStart
      */
     private $playersArray = [];
     private $playersValuesArray = [];
@@ -127,9 +128,7 @@ class Game
      * sum 7, 3
      * return 1
      *
-     * @return int returns the player to start
-     * @return string if two players have the same highest score the
-     *  method will return a string that says 'Roll again'
+     * @return int | string
      */
     public function firstPlayer()
     {
@@ -154,9 +153,8 @@ class Game
     }
 
     /**
-     * Get values of dices from last roll.
      *
-     * @return array with values of the last roll.
+     * @return boolean
      */
     public function checkIfNumberOneIsInHand(int $player)
     {
@@ -181,12 +179,11 @@ class Game
             if ($player === $playersAmount) {
                 $this->playerToStart = 1;
                 return $this->playerToStart;
-            } else {
+            } elseif($player !== $playersAmount) {
                 return $this->playerToStart = $player + 1;
             }
-        } else {
-            return false;
         }
+        return false;
     }
 
     public function returnPlayerToStart()
@@ -196,10 +193,9 @@ class Game
 
     public function playerRoundSum(int $player)
     {
+        $roundSum = 0;
         if (array_key_exists($player - 1, $this->playersRoundsSum)) {
             $roundSum = $this->playersRoundsSum[$player - 1];
-        } else {
-            $roundSum = 0;
         }
 
         if ($this->checkIfNumberOneIsInHand($player) === True) {
@@ -223,9 +219,11 @@ class Game
     {
         if (array_key_exists($player - 1, $this->playersFinalSum)) {
             $this->playersFinalSum[$player - 1] += $this->playersRoundsSum[$player - 1];
-        } else {
+        }
+        if (!array_key_exists($player - 1, $this->playersFinalSum)) {
             $this->playersFinalSum[$player - 1] = $this->playersRoundsSum[$player - 1];
         }
+
         return $this->moveToNextPlayer($player);
     }
 

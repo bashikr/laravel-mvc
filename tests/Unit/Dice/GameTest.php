@@ -134,8 +134,7 @@ class GameTest extends TestCase
 
         if ($firstPlayer == 'Roll again') {
             $this->assertIsInt($res);
-        } else {
-            $this->assertGreaterThan(0, $res);
         }
+        $this->assertGreaterThan(0, $res);
     }
 }

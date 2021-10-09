@@ -29,7 +29,8 @@ Route::get('/game21', function () {
     return view('game21');
 })->name('game21');
 
-Route::get('/dice100', function () {
+Route::get('/dice100', function (Request $request) {
+    $request->session()->put('playersFinalSum', null);
     return view('diceGame/dice100');
 })->name('dice100');
 

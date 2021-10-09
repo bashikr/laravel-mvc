@@ -21,22 +21,19 @@ class PlayForm
                 $playersAmount = $request->session()->get('playersAmount');
                 $dicesAmount = $request->session()->get('dicesAmount');
                 return redirect("/play")->with('playersAmount', $playersAmount)->with('dicesAmount', $dicesAmount);
-            } else {
-                $whoWillPlay = $request->session()->get('firstPlayer');
-                $game->processPlayersArrays();
-                $game->throwAgain();
-                $request->session()->put('playerHand', $game->playerHand($whoWillPlay));
-                $request->session()->put('saveButtonVisibility', 'visible');
-                $request->session()->put("playersHandSum", $game->playersHandSum());
-                $request->session()->put("playerRoundSum", $game->playerRoundSum($whoWillPlay));
-                $request->session()->put("winner", $game->winner($whoWillPlay));
-                return redirect("/game");
             }
+            $whoWillPlay = $request->session()->get('firstPlayer');
+            $game->processPlayersArrays();
+            $game->throwAgain();
+            $request->session()->put('playerHand', $game->playerHand($whoWillPlay));
+            $request->session()->put('saveButtonVisibility', 'visible');
+            $request->session()->put('playButtonVisibility', 'visible');
+            $request->session()->put("playersHandSum", $game->playersHandSum());
+            $request->session()->put("playerRoundSum", $game->playerRoundSum($whoWillPlay));
+            $request->session()->put("winner", $game->winner($whoWillPlay));
+            return redirect("/game");
         } elseif ($reset) {
             return redirect("/dice100");
         }
-
-        // return redirect('/game')->with('play', $play)
-        //     ->with('reset', $reset);
     }
 }
