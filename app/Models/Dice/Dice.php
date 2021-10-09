@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dice;
+namespace App\Models\Dice;
 
 
 /**

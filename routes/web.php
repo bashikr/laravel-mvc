@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\Dice\GameForm;
-use App\Http\Controllers\Dice\PlayForm;
-use App\Http\Controllers\Dice\StartForm;
+use App\Controllers\Dice\GameForm;
+use App\Controllers\Dice\PlayForm;
+use App\Controllers\Dice\StartForm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

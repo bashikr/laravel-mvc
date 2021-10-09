@@ -1,10 +1,10 @@
 <?php
-namespace App\Http\Controllers\Dice;
+namespace App\Controllers\Dice;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Dice\Game;
 
-class StartForm extends Controller
+class StartForm
 {
     public function process(Request $request)
     {

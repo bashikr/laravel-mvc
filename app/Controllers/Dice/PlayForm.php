@@ -1,10 +1,9 @@
 <?php
-namespace App\Http\Controllers\Dice;
+namespace App\Controllers\Dice;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class PlayForm extends Controller
+class PlayForm
 {
     public function process(Request $request)
     {

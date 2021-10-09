@@ -1,10 +1,7 @@
 <?php
-namespace App\Http\Controllers\Dice;
+namespace App\Models\Dice;
 
-use App\Http\Controllers\Controller;
-use App\Http\Controllers\Dice\DiceHand;
-
-class Game extends Controller
+class Game
 {
     /**
      * @var int $dice
