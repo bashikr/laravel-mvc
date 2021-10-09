@@ -1,8 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HelloWorldController;
-use App\Http\Controllers\FormController;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Dice\Game;
+use App\Http\Controllers\Dice\GameForm;
+use App\Http\Controllers\Dice\PlayForm;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,36 +22,114 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::get('/home', function () {
+    return view('welcome');
+})->name('home');
+
+
 Route::get('/game21', function () {
     return view('game21');
 })->name('game21');
 
+
+
+
 Route::get('/dice100', function () {
-    return view('dice100');
+    return view('diceGame/dice100');
 })->name('dice100');
 
-Route::get('/hello-world', function () {
-    echo "Hello World";
-});
+Route::post('/gameForm', [GameForm::class, 'process'])->name('gameForm');
+
+Route::get('/play', function (Request $request) {
+
+    $playersAmount = $request->session()->get('playersAmount');
+    $dicesAmount = $request->session()->get('dicesAmount');
+    $game = new Game($playersAmount, $dicesAmount);
+    $game->processPlayersArrays();
+    $playersHands = $game->getPlayersHands();
+    $playersHandSum = $game->playersHandSum();
+
+    $data = [
+        'dicesAmount' => $dicesAmount,
+        'playersAmount' => $playersAmount,
+        'playersHands' => $playersHands,
+        'playersHandSum' => $playersHandSum,
+    ];
+
+    return view('diceGame/play')->with('data', $data);
+})->name('play');
+
+
+Route::post('/play', [PlayForm::class, 'process'])->name('play');
+
+
+Route::get('/game', function (Request $request) {
+
+    $play = $request->session()->get('play');
+    $reset = $request->session()->get('reset');
+
+    if($play) {
+        return view('diceGame/game');
+    } elseif ($reset) {
+        return view('diceGame/dice100');
+    }
+
+
+})->name('game');
 
 
 
-Route::get('/hello-world-view', function () {
-    return view('message', [
-        'message' => "Hello World from within a view"
-    ]);
-});
+// Route::post('/play', function () {
+    // $play = $app->request->getPost("play");
+    // $reset = $app->request->getPost("reset");
+
+    // $game = $app->session->get("game");
+
+    // if ($play) {
+        // if($game->firstPlayer() == 'Roll again') {
+        //     $game->throwAgain();
+        //     $app->session->set("playersHands", $game->getPlayersHands());
+        //     $app->session->set("playersHandSum", $game->playersHandSum());
+        //     $app->session->set("firstPlayer", $game->firstPlayer());
+        //     return $app->response->redirect("games-view/dice/play");
+        // } else {
+        //     $whoWillPlay = $app->session->get('firstPlayer');
+        //     $game->processPlayersArrays();
+        //     $game->throwAgain();
+        //     $app->session->set("playerHand", $game->playerHand($whoWillPlay));
+        //     $app->session->set('saveButtonVisibility', 'visible');
+        //     $app->session->set("playersHandSum", $game->playersHandSum());
+        //     $app->session->set("playerRoundSum", $game->playerRoundSum($whoWillPlay));
+        //     $app->session->set("winner", $game->winner($whoWillPlay));
+
+        //     return $app->response->redirect("games-view/dice/game");
+        // }
+    // } elseif ($reset) {
+        // return $app->response->redirect("games-view/dice/init");
+    // }
+// });
+
+// Route::post('/play', function (Request $request) {
+
+//     $playersAmount = $request->session()->get('playersAmount');
+//     $dicesAmount = $request->session()->get('dicesAmount');
+//     // $game = new Game($playersAmount, $dicesAmount);
+
+//     $data = [
+//         'dicesAmount' => $dicesAmount,
+//         'playersAmount' => $playersAmount,
+//     ];
+
+//     return view('diceGame/play')->with('data', $data);
+// })->name('play');
 
 
-Route::get('/hello', [HelloWorldController::class, 'hello']);
+// Route::get('/play', [Game::class, 'processPlayersArrays'])->name('play');
+// Route::get('/play1', [Game::class, 'getPlayersHands'])->name('play');
 
-Route::get('/hello/{message}', [HelloWorldController::class, 'hello']);
-Route::get('/hello', 'App\Http\Controllers\HelloWorldController@hello');
 
-Route::get('/form', [FormController::class, 'index']);
-Route::post('/form/process', [FormController::class, 'process']);
-Route::get('/form/view', [FormController::class, 'view']);
+// Route::get('/play', [Game::class, 'playersHandSum'])->name('play');
+// Route::get('/play', [Game::class, 'firstPlayer'])->name('play');
+
 
 // Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
