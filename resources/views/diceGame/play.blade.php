@@ -13,23 +13,22 @@ $request = request();
                 <h3>Dice game 100</h3>
 
                 <p>The players' initial throw:</p>
-                @if (session('playersAmount') && session('dicesAmount'))
-                    <p class="text-dark">{!! $data['playersHands'] !!}</p>
-                @else
-                    <p>Empty message.</p>
-                @endif
+                <p class="text-dark">{!! $request->session()->get('playersHands') !!}</p>
 
                 <p>The players' hands' sums:</p>
-                @if (session('playersAmount') && session('dicesAmount'))
-                    <p class="text-dark">{!! $data['playersHandSum'] !!}</p>
+                <p class="text-dark">{!! $request->session()->get('playersHandSum') !!}</p>
+
+                @if (is_int($app->session->get('firstPlayer')))
+                    <p>Player <?= $app->session->get('firstPlayer') ?> will start playing</p>
+                    <br>
                 @else
-                    <p>Empty message.</p>
+                    <?= $request->session()->get('firstPlayer') ?>
                 @endif
 
                 <form method="post">
                     @csrf
-                    <input type="submit" name="play" value="Play" class="btn btn-primary">
                     <input type="submit" name="reset" value="Reset" class="btn btn-primary">
+                    <input type="submit" name="play" value="Play" class="btn btn-primary">
                 </form>
             </div>
         </div>

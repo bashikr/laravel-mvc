@@ -11,7 +11,7 @@
         class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-top py-4 sm:pt-0">
         <div class=" text-center container jumbotron w-50 bg-white text-dark">
             <h1>Dice 100</h1>
-            <form method="post" action="gameForm">
+            <form method="post">
                 @csrf
                 <label>Players:</label>
                 <p><input type="number" name="playersAmount" min="2" max="5" required class="border border-primary"></p>
