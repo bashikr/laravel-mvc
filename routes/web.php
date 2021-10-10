@@ -6,6 +6,11 @@ use App\Controllers\Dice\StartForm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Controllers\Guess\GuessForm;
+use App\Controllers\Guess\WinForm;
+use App\Controllers\Guess\FailForm;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,3 +57,31 @@ Route::get('/game', function (Request $request) {
 Route::post('/game', [GameForm::class, 'process'])->name('game');
 
 // Auth::routes();
+
+
+Route::get('/start-guess', function () {
+    return view('guessGame/landing');
+})->name('start-guess');
+
+Route::post('/start-guess', [GuessForm::class, 'index'])->name('start-guess');
+
+
+Route::get('/play-guess', function () {
+    return view('guessGame/play');
+})->name('play-guess');
+
+Route::post('/play-guess', [GuessForm::class, 'process'])->name('play-guess');
+
+
+Route::get('/win-guess', function () {
+    return view('guessGame/win');
+})->name('win-guess');
+
+Route::post('/win-guess',[WinForm::class, 'process'])->name('win-guess');
+
+
+Route::get('/fail-guess', function () {
+    return view('guessGame/fail');
+})->name('fail-guess');
+
+Route::post('/fail-guess',[FailForm::class, 'process'])->name('fail-guess');
