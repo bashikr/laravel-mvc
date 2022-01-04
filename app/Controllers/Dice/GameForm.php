@@ -1,15 +1,19 @@
 <?php
 namespace App\Controllers\Dice;
 
+use App\Controllers\Dice\DiceGameTable;
 use Illuminate\Http\Request;
 
 class GameForm
 {
+
     public function process(Request $request)
     {
         $play = $request->input('playPlayer');
         $reset = $request->input('reset');
         $save = $request->input('save');
+
+        $diceGameTable = new DiceGameTable();
 
         if ($play) {
             $game = $request->session()->get("game");
@@ -36,6 +40,8 @@ class GameForm
             $request->session()->put("playerHand", $game->playerHand($whoWillPlay));
             $request->session()->put('saveButtonVisibility', $game->saveButtonVisibility('save', $whoWillPlay));
             $request->session()->put('playButtonVisibility', $game->playButtonVisibility());
+
+            $diceGameTable->store($request);
             return redirect("/game");
         }
     }

@@ -1,2 +1,2 @@
 
-Fatal error: Allowed memory size of 134217728 bytes exhausted (tried to allocate 2097160 bytes) in phar://C:/Users/basha/dbwebb-kurser/mvc/me/framework/.bin/phpcs/src/Tokenizers/JS.php on line 2
+Fatal error: Allowed memory size of 134217728 bytes exhausted (tried to allocate 2097160 bytes) in phar://C:/Users/basha/dbwebb-kurser/mvc/me/orm/.bin/phpcs/src/Tokenizers/JS.php on line 2
