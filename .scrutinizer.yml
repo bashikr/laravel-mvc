@@ -2,7 +2,7 @@ imports:
     - php
 
 filter:
-    excluded_paths: [vendor/*, test/*, build/coverage/*]
+    excluded_paths: [vendor/*, test/*, build/coverage/*, app/Models/User.php]
 
 build:
     nodes:
@@ -11,6 +11,9 @@ build:
                 php:
                     version: 7.4
     tests:
+        before:
+            - cp .env.scrutinizer .env
+            - php artisan key:generate
         override:
             - command: "make install test"
             - command: "make phpunit"
