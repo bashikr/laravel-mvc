@@ -2,53 +2,19 @@ imports:
     - php
 
 filter:
-    excluded_paths: [vendor/*, test/*,  build/*, database/*]
+    excluded_paths: [vendor/*, test/*, build/coverage/*]
 
 build:
-    project_setup:
-            override:
-                - true
     nodes:
-        analysis:
-          project_setup:
-            override: true
         my-tests:
             environment:
                 php:
                     version: 7.4
-                mysql: '5.7'
-                node: 'v12.14'
-                hosts:
-                  laravel.dev: '127.0.0.1'
-                variables:
-                    APP_KEY: 'base64:n+JmhBwakWpNDTY9x3YB7mQn810XIUqtI5sqec3OFa4='
-                    APP_ENV: 'testing'
-                    APP_URL: 'http://laravel.dev'
-                    API_HOST: 'laravel.dev'
-                    DB_HOST: '127.0.0.1'
-                    DB_DATABASE: 'scrutinizer'
-                    DB_USERNAME: 'root'
-                    DB_PASSWORD: ''
-                    MAIL_DRIVER: 'log'
-            cache:
-              directories:
-                  - node_modules
-                  - vendor/
-                  - ~/.composer/cache/
-            dependencies:
-                before:
-                    - mysql -uroot -e 'CREATE DATABASE scrutinizer'
-
     tests:
-          before:
-            - chmod -R 777 storage
-            - chmod -R 777 bootstrap/cache
-            - npm run production
-          override:
-            - php-scrutinizer-run
-            - command: "vendor/bin/phpunit --dump-xdebug-filter xdebug-filter.php"
+        override:
+            - command: "make install test"
             - command: "make phpunit"
-            - command: "php artisan migrate --env=testing --no-interaction -vvv"
-              coverage:
-                  file: "build/coverage.clover"
-                  format: "php-clover"
+            - command: "make phpcs phpmd phpstan"
+            - coverage:
+                file: "build/coverage.clover"
+                format: "php-clover"
