@@ -5,6 +5,12 @@ namespace App\Models\Dice;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Models\User
+ *
+ * @property string $winner
+ * @property string $score
+ */
 class DiceResults extends Model
 {
     use HasFactory;

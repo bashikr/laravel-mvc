@@ -2,8 +2,8 @@
 namespace App\Controllers\Dice;
 
 use App\Models\Dice\DiceResults;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class DiceGameTable extends Controller
@@ -11,20 +11,21 @@ class DiceGameTable extends Controller
     /**
      * Show a list of all of the application's dice.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
     public function index()
     {
         $diceResults = DB::table('diceresults')->get();
 
         return view('guessGame.scores.display', ['diceresults' => $diceResults]);
+
     }
 
     /**
-     * Store a new flight in the database.
+     * Store a new high score in the database.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
