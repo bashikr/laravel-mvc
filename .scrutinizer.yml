@@ -14,6 +14,7 @@ build:
                 php:
                     version: 7.4
                 mysql: '5.7'
+                node: '12.14'
                 hosts:
                   laravel.dev: '127.0.0.1'
                 variables:
