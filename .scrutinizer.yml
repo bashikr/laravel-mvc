@@ -15,9 +15,7 @@ build:
             - cp .env.scrutinizer .env
             - php artisan key:generate
         override:
-            - command: "make install test"
             - command: "make phpunit"
-            - command: "make phpcs phpmd phpstan"
             - coverage:
                 file: "build/coverage.clover"
                 format: "php-clover"
