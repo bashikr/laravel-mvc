@@ -2,7 +2,7 @@ imports:
     - php
 
 filter:
-    excluded_paths: [vendor/*, test/*]
+    excluded_paths: [vendor/*, test/*,  build/coverage/*]
 
 build:
     nodes:
@@ -12,8 +12,11 @@ build:
                     version: 7.4
     tests:
         override:
-            -
-                command: "make phpunit"
-                coverage:
-                    file: "build/coverage.clover"
-                    format: "php-clover"
+            - true
+            - command: "make install test"
+            - command: "make phpunit"
+            - command: "make phpcs phpmd phpstan"
+            - command: "php artisan migrate"
+              coverage:
+                  file: "build/coverage.clover"
+                  format: "php-clover"
