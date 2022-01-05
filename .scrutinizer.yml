@@ -2,17 +2,26 @@ imports:
     - php
 
 filter:
-    excluded_paths: [vendor/*, test/*,  build/coverage/*]
+    excluded_paths: [vendor/*, test/*,  build/*, database/*]
 
 build:
     nodes:
+        analysis:
+          project_setup:
+            override: true
         my-tests:
             environment:
                 php:
                     version: 7.4
     tests:
-        override:
-            - true
+          override:
+            - php-scrutinizer-run
+            - command: 'vendor/bin/phpunit --dump-xdebug-filter xdebug-filter.php'
+            -
+              command: 'vendor/bin/phpunit --prepend xdebug-filter.php --coverage-clover=some-file'
+              coverage:
+                file: 'some-file'
+                format: 'clover'
             - command: "make install test"
             - command: "make phpunit"
             - command: "make phpcs phpmd phpstan"
