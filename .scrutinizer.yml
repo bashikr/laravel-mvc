@@ -17,15 +17,8 @@ build:
           override:
             - php-scrutinizer-run
             - command: 'vendor/bin/phpunit --dump-xdebug-filter xdebug-filter.php'
-            -
-              command: 'vendor/bin/phpunit --prepend xdebug-filter.php --coverage-clover=some-file'
-              coverage:
-                file: 'some-file'
-                format: 'clover'
-            - command: "make install test"
             - command: "make phpunit"
             - command: "make phpcs phpmd phpstan"
-            - command: "php artisan migrate"
               coverage:
                   file: "build/coverage.clover"
                   format: "php-clover"
