@@ -18,7 +18,6 @@ build:
             - php-scrutinizer-run
             - command: 'vendor/bin/phpunit --dump-xdebug-filter xdebug-filter.php'
             - command: "make phpunit"
-            - command: "make phpcs phpmd phpstan"
               coverage:
                   file: "build/coverage.clover"
                   format: "php-clover"
