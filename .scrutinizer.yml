@@ -5,9 +5,6 @@ filter:
     excluded_paths: [vendor, test, build, database]
 
 build:
-    project_setup:
-        override:
-            - true
     nodes:
         my-tests:
             environment:
