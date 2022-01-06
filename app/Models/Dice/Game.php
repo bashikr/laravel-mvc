@@ -260,14 +260,10 @@ class Game
                 $this->playersRoundsSum[$player - 1] = 0;
             }
 
-            if ($this->checkIfNumberOneIsInHand($player) === True) {
-                return 'none';
-            }
             return 'none';
-        } else if ($case == 'visible') {
-            if ($this->checkIfNumberOneIsInHand($player) === True) {
-                return 'none';
-            }
+        } else if ($case == 'visible' && $this->checkIfNumberOneIsInHand($player) === True) {
+            return 'none';
+        } else if ($case == 'visible' && $this->checkIfNumberOneIsInHand($player) === False) {
             return 'visible';
         }
     }
