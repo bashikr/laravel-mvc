@@ -7,11 +7,11 @@ class Game
      * @var int $dice
      * @var int $playerToStart
      */
-    private $playersArray = array();
-    private $playersValuesArray = array();
-    private $playersHandSum = array();
-    private $playersRoundsSum = array();
-    private $playersFinalSum = array();
+    private $playersArray = [];
+    private $playersValuesArray = [];
+    private $playersHandSum = [];
+    private $playersRoundsSum = [];
+    private $playersFinalSum = [];
     private $playerToStart = 0;
 
     /**
@@ -37,7 +37,10 @@ class Game
      */
     public function processPlayersArrays()
     {
-        $playersNumber = count($this->playersArray);
+        $res = $this->playersArray;
+
+        $playersNumber = count($res);
+
         for ($i = 0; $i < $playersNumber; $i++) {
 
             $diceHand = $this->playersArray[$i];
@@ -57,7 +60,9 @@ class Game
 
     public function throwAgain()
     {
-        $playersNumber = count($this->playersArray);
+        $res = $this->playersArray;
+
+        $playersNumber = count($res);
         $this->playersValuesArray = [];
         $this->playersHandSum = [];
 
@@ -93,7 +98,9 @@ class Game
      */
     public function getPlayersHands()
     {
-        $count = sizeof($this->playersValuesArray);
+        $res = $this->playersValuesArray;
+
+        $count = sizeof($res);
         $values1 = '';
         for ($i = 0; $i < $count; $i++) {
             $values1 .= "Player's " . ($i + 1) . ' hand dices: ' . implode(', ', $this->playersValuesArray[$i]) . '<br>';
@@ -111,7 +118,9 @@ class Game
      */
     public function playersHandSum()
     {
-        $playersNumber = count($this->playersArray);
+        $res = $this->playersArray;
+
+        $playersNumber = count($res);
         $this->playersHandSum = [];
         for ($i = 0; $i < $playersNumber; $i++) {
             array_push($this->playersHandSum, $this->playersArray[$i]->sum());
