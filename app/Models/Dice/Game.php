@@ -7,11 +7,11 @@ class Game
      * @var int $dice
      * @var int $playerToStart
      */
-    private $playersArray = [];
-    private $playersValuesArray = [];
-    private $playersHandSum = [];
-    private $playersRoundsSum = [];
-    private $playersFinalSum = [];
+    private $playersArray = array();
+    private $playersValuesArray = array();
+    private $playersHandSum = array();
+    private $playersRoundsSum = array();
+    private $playersFinalSum = array();
     private $playerToStart = 0;
 
     /**
@@ -22,7 +22,7 @@ class Game
     public function __construct(int $playersNumber, int $dicesAmount)
     {
         for ($i = 0; $i < $playersNumber; $i++) {
-            array_push($this->playersArray, new DiceHand($dicesAmount));
+            $this->playersArray[] = new DiceHand($dicesAmount);
         }
     }
 
