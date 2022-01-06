@@ -90,11 +90,8 @@ class Guess
 
         $this->tries();
 
-        if ($guess === $this->number) {
-            return "CORRECT";
-        } else if ($guess > $this->number) {
-            return "TOO HIGH";
-        }
+        if ($guess === $this->number) return "CORRECT";
+        if ($guess > $this->number) return "TOO HIGH";
         return "TOO LOW";
     }
 }
