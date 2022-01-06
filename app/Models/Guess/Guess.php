@@ -53,6 +53,12 @@ class Guess
      */
     public function tries() : int
     {
+        $this->tries--;
+
+        if ($this->tries < 0) {
+            $this->tries=0;
+        }
+
         return $this->tries;
     }
 
@@ -81,18 +87,14 @@ class Guess
         if ($guess < 1 || $guess > 100) {
             throw new GuessException("The given number is out of range.");
         }
-        $this->tries--;
-        if ($this->tries < 0) {
-            $this->tries=0;
-        }
+
+        $this->tries();
 
         if ($guess === $this->number) {
-            $res = "CORRECT";
-        } elseif ($guess > $this->number) {
-            $res = "TOO HIGH";
-        } else {
-            $res = "TOO LOW";
+            return "CORRECT";
+        } else if ($guess > $this->number) {
+            return "TOO HIGH";
         }
-        return $res;
+        return "TOO LOW";
     }
 }
