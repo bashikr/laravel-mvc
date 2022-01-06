@@ -205,7 +205,7 @@ class Game
         } else if ($this->checkIfNumberOneIsInHand($player) === False) {
             $roundSum += $this->playersHandSum[$player - 1];
             $this->playersRoundsSum[$player - 1] = $roundSum;
-            if ($this->playersRoundsSum) {
+            if (!empty($this->playersRoundsSum)) {
                 if ($this->playersRoundsSum[$player - 1] < 100) {
                     return $this->playersRoundsSum[$player - 1];
                 }
