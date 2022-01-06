@@ -24,15 +24,13 @@ class Guess
      * @param int $tries  Number of tries a guess has been made,
      *                    default 6.
      */
-    public function __construct(int $number = -1, int $tries = 6)
+    public function __construct(int $random = -1, int $tries = 6)
     {
         $this->tries = $tries;
-        if ($number === -1) {
-            $number = rand(1, 100);
-        }
-        $this->number = $number;
-    }
 
+        if ($random == -1) $this->random();
+        if ($random !== -1) $this->number = $random;
+    }
 
     /**
      * Randomize the secret number between 1 and 100 to initiate a new game.

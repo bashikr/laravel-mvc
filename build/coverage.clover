@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1641502571">
-  <project timestamp="1641502571">
+<coverage generated="1641505094">
+  <project timestamp="1641505094">
     <file name="C:\Users\basha\dbwebb-kurser\mvc\me\ci\app\Console\Kernel.php">
       <class name="App\Console\Kernel" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="3" elements="6" coveredelements="4"/>
@@ -546,35 +546,34 @@
     </file>
     <file name="C:\Users\basha\dbwebb-kurser\mvc\me\ci\app\Models\Guess\Guess.php">
       <class name="App\Models\Guess\Guess" namespace="global">
-        <metrics complexity="12" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="0" elements="26" coveredelements="0"/>
+        <metrics complexity="13" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="25" coveredelements="25"/>
       </class>
-      <line num="27" type="method" name="__construct" visibility="public" complexity="2" crap="6" count="0"/>
-      <line num="29" type="stmt" count="0"/>
-      <line num="30" type="stmt" count="0"/>
-      <line num="31" type="stmt" count="0"/>
-      <line num="33" type="stmt" count="0"/>
-      <line num="34" type="stmt" count="0"/>
-      <line num="42" type="method" name="random" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="44" type="stmt" count="0"/>
-      <line num="45" type="stmt" count="0"/>
-      <line num="46" type="stmt" count="0"/>
-      <line num="54" type="method" name="tries" visibility="public" complexity="2" crap="6" count="0"/>
-      <line num="56" type="stmt" count="0"/>
-      <line num="58" type="stmt" count="0"/>
-      <line num="59" type="stmt" count="0"/>
-      <line num="62" type="stmt" count="0"/>
-      <line num="71" type="method" name="number" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="73" type="stmt" count="0"/>
-      <line num="85" type="method" name="makeGuess" visibility="public" complexity="3" crap="12" count="0"/>
-      <line num="87" type="stmt" count="0"/>
-      <line num="88" type="stmt" count="0"/>
-      <line num="91" type="stmt" count="0"/>
-      <line num="93" type="stmt" count="0"/>
-      <line num="102" type="method" name="checkGuess" visibility="public" complexity="3" crap="12" count="0"/>
-      <line num="104" type="stmt" count="0"/>
-      <line num="105" type="stmt" count="0"/>
-      <line num="106" type="stmt" count="0"/>
-      <metrics loc="108" ncloc="63" classes="1" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="0" elements="26" coveredelements="0"/>
+      <line num="27" type="method" name="__construct" visibility="public" complexity="3" crap="3" count="6"/>
+      <line num="29" type="stmt" count="6"/>
+      <line num="31" type="stmt" count="6"/>
+      <line num="32" type="stmt" count="6"/>
+      <line num="33" type="stmt" count="6"/>
+      <line num="40" type="method" name="random" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="42" type="stmt" count="1"/>
+      <line num="43" type="stmt" count="1"/>
+      <line num="44" type="stmt" count="1"/>
+      <line num="52" type="method" name="tries" visibility="public" complexity="2" crap="2" count="2"/>
+      <line num="54" type="stmt" count="2"/>
+      <line num="56" type="stmt" count="2"/>
+      <line num="57" type="stmt" count="1"/>
+      <line num="60" type="stmt" count="2"/>
+      <line num="69" type="method" name="number" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="71" type="stmt" count="1"/>
+      <line num="83" type="method" name="makeGuess" visibility="public" complexity="3" crap="3" count="2"/>
+      <line num="85" type="stmt" count="2"/>
+      <line num="86" type="stmt" count="1"/>
+      <line num="89" type="stmt" count="1"/>
+      <line num="91" type="stmt" count="1"/>
+      <line num="100" type="method" name="checkGuess" visibility="public" complexity="3" crap="3" count="2"/>
+      <line num="102" type="stmt" count="2"/>
+      <line num="103" type="stmt" count="2"/>
+      <line num="104" type="stmt" count="1"/>
+      <metrics loc="106" ncloc="61" classes="1" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="25" coveredelements="25"/>
     </file>
     <file name="C:\Users\basha\dbwebb-kurser\mvc\me\ci\app\Models\Guess\GuessException.php">
       <class name="App\Models\Guess\GuessException" namespace="global">
@@ -648,6 +647,6 @@
       <line num="62" type="stmt" count="1"/>
       <metrics loc="63" ncloc="38" classes="1" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="14" elements="17" coveredelements="15"/>
     </file>
-    <metrics files="39" loc="1678" ncloc="1213" classes="26" methods="62" coveredmethods="26" conditionals="0" coveredconditionals="0" statements="351" coveredstatements="140" elements="413" coveredelements="166"/>
+    <metrics files="39" loc="1676" ncloc="1211" classes="26" methods="62" coveredmethods="32" conditionals="0" coveredconditionals="0" statements="350" coveredstatements="159" elements="412" coveredelements="191"/>
   </project>
 </coverage>
