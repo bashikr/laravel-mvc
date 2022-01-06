@@ -82,7 +82,7 @@ class Guess
      *
      * @return string to show the status of the guess made.
      */
-    public function makeGuess(int $guess) : string
+    public function makeGuess(int $guess)
     {
         if ($guess < 1 || $guess > 100) {
             throw new GuessException("The given number is out of range.");
@@ -90,6 +90,17 @@ class Guess
 
         $this->tries();
 
+        return $this->checkGuess($guess);
+    }
+
+        /**
+     * Make a guess, decrease remaining guesses and return a string stating
+     * if the guess was correct, too low or to high or if no guesses remains.
+     *
+     * @return string to show the status of the guess made.
+     */
+    public function checkGuess(int $guess) : string
+    {
         if ($guess === $this->number) return "CORRECT";
         if ($guess > $this->number) return "TOO HIGH";
         return "TOO LOW";
