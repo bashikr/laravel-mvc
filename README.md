@@ -1,3 +1,7 @@
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/bashikr/laravel-mvc/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/bashikr/laravel-mvc/?branch=main)
+[![Code Coverage](https://scrutinizer-ci.com/g/bashikr/laravel-mvc/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/bashikr/laravel-mvc/?branch=main)
+[![Build Status](https://scrutinizer-ci.com/g/bashikr/laravel-mvc/badges/build.png?b=main)](https://scrutinizer-ci.com/g/bashikr/laravel-mvc/build-status/main)
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
