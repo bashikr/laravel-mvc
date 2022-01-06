@@ -37,10 +37,7 @@ class Game
      */
     public function processPlayersArrays()
     {
-        $res = $this->playersArray;
-
-        $playersNumber = count($res);
-
+        $playersNumber = sizeof($this->playersArray);
         for ($i = 0; $i < $playersNumber; $i++) {
 
             $diceHand = $this->playersArray[$i];
@@ -60,9 +57,7 @@ class Game
 
     public function throwAgain()
     {
-        $res = $this->playersArray;
-
-        $playersNumber = count($res);
+        $playersNumber = sizeof($this->playersArray);
         $this->playersValuesArray = [];
         $this->playersHandSum = [];
 
@@ -98,9 +93,7 @@ class Game
      */
     public function getPlayersHands()
     {
-        $res = $this->playersValuesArray;
-
-        $count = sizeof($res);
+        $count = sizeof($this->playersValuesArray);
         $values1 = '';
         for ($i = 0; $i < $count; $i++) {
             $values1 .= "Player's " . ($i + 1) . ' hand dices: ' . implode(', ', $this->playersValuesArray[$i]) . '<br>';
@@ -118,9 +111,7 @@ class Game
      */
     public function playersHandSum()
     {
-        $res = $this->playersArray;
-
-        $playersNumber = count($res);
+        $playersNumber = sizeof($this->playersArray);
         $this->playersHandSum = [];
         for ($i = 0; $i < $playersNumber; $i++) {
             array_push($this->playersHandSum, $this->playersArray[$i]->sum());
@@ -142,7 +133,7 @@ class Game
     public function firstPlayer()
     {
         $max = max($this->playersHandSum);
-        $itemsInPlayerSum = count($this->playersHandSum);
+        $itemsInPlayerSum = sizeof($this->playersHandSum);
 
         $rep = 0;
         for ($i = 0; $i < $itemsInPlayerSum; $i++) {
@@ -182,7 +173,7 @@ class Game
 
     public function moveToNextPlayer(int $player)
     {
-        $playersAmount = count($this->playersArray);
+        $playersAmount = sizeof($this->playersArray);
 
         if ($player <= $playersAmount && $player > 0) {
             if ($player === $playersAmount) {
@@ -239,7 +230,7 @@ class Game
     public function playersFinalSum()
     {
         $keys = array_keys($this->playersFinalSum);
-        $arrayLength = count($keys);
+        $arrayLength = sizeof($keys);
 
         $res = '';
         for ($i = 0; $i < $arrayLength; $i++) {
@@ -251,7 +242,7 @@ class Game
 
     public function winner(int $player)
     {
-        $playersFinalSumCount = count($this->playersFinalSum);
+        $playersFinalSumCount = sizeof($this->playersFinalSum);
         if ($playersFinalSumCount > 0) {
             if (array_key_exists($player - 1, $this->playersFinalSum)) {
                 if ($this->playersFinalSum[$player - 1] < 100) {
