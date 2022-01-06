@@ -13,6 +13,7 @@ class Game
     private $playersRoundsSum = [];
     private $playersFinalSum = [];
     private $playerToStart = 0;
+    private int $playersNumber;
 
     /**
      * Create DiceHand
@@ -21,6 +22,7 @@ class Game
      */
     public function __construct(int $playersNumber, int $dicesAmount)
     {
+        $this->playersNumber = $playersNumber;
         for ($i = 0; $i < $playersNumber; $i++) {
             $this->playersArray[] = new DiceHand($dicesAmount);
         }
@@ -37,8 +39,7 @@ class Game
      */
     public function processPlayersArrays()
     {
-        $playersNumber = count(/** @scrutinizer ignore-type */ $this->playersArray);
-        for ($i = 0; $i < $playersNumber; $i++) {
+        for ($i = 0; $i < $this->playersNumber; $i++) {
 
             $diceHand = $this->playersArray[$i];
             $diceHand->setValues();
@@ -57,11 +58,10 @@ class Game
 
     public function throwAgain()
     {
-        $playersNumber = count(/** @scrutinizer ignore-type */ $this->playersArray);
         $this->playersValuesArray = [];
         $this->playersHandSum = [];
 
-        for ($i = 0; $i < $playersNumber; $i++) {
+        for ($i = 0; $i < $this->playersNumber; $i++) {
             $this->playersArray[$i]->changeValuesArray();
             $this->playersArray[$i]->rollHand();
             $this->playersArray[$i]->resetHandScore();
@@ -111,9 +111,8 @@ class Game
      */
     public function playersHandSum()
     {
-        $playersNumber = count(/** @scrutinizer ignore-type */ $this->playersArray);
         $this->playersHandSum = [];
-        for ($i = 0; $i < $playersNumber; $i++) {
+        for ($i = 0; $i < $this->playersNumber; $i++) {
             array_push($this->playersHandSum, $this->playersArray[$i]->sum());
         }
         $playersHandSum = implode(', ', $this->playersHandSum);
