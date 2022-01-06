@@ -261,11 +261,12 @@ class Game
             }
 
             return 'none';
-        } else if ($case == 'visible' && $this->checkIfNumberOneIsInHand($player) === True) {
-            return 'none';
-        } else if ($case == 'visible' && $this->checkIfNumberOneIsInHand($player) === False) {
-            return 'visible';
         }
+
+        if ($case == 'visible' && $this->checkIfNumberOneIsInHand($player) === True) {
+            return 'none';
+        }
+        return 'visible';
     }
 
     public function playButtonVisibility()
