@@ -3,8 +3,8 @@
 use App\Controllers\Dice\GameForm;
 use App\Controllers\Dice\PlayForm;
 use App\Controllers\Dice\StartForm;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request as req;
 
 use App\Controllers\Guess\GuessForm;
 use App\Controllers\Guess\WinForm;
@@ -36,7 +36,7 @@ Route::get('/game21', function () {
     return view('game21');
 })->name('game21');
 
-Route::get('/dice100', function (Request $request) {
+Route::get('/dice100', function (req $request) {
     $request->session()->put('playersFinalSum', null);
     return view('diceGame/dice100');
 })->name('dice100');
@@ -49,7 +49,7 @@ Route::get('/play', function () {
 
 Route::post('/play', [PlayForm::class, 'process'])->name('play');
 
-Route::get('/game', function (Request $request) {
+Route::get('/game', function (req $request) {
     $game = $request->session()->get("game");
     $request->session()->put("firstPlayer1", $game->returnPlayerToStart());
 
