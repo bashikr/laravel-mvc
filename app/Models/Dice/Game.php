@@ -263,11 +263,17 @@ class Game
             return 'none';
         }
 
-        if ($case == 'visible' && $this->checkIfNumberOneIsInHand($player) === True) {
+        return $this->oneWhenSaveButtonIsVisible($player);
+    }
+
+    public function oneWhenSaveButtonIsVisible(int $player)
+    {
+        if ($this->checkIfNumberOneIsInHand($player) === True) {
             return 'none';
         }
         return 'visible';
     }
+
 
     public function playButtonVisibility()
     {
