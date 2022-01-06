@@ -6,7 +6,7 @@ namespace App\Models\Dice;
 class DiceHand
 {
     /**
-     * @var int $dice
+     * @var array $dices
      */
     private $dices = [];
     private $values = [];
@@ -24,7 +24,7 @@ class DiceHand
 
         for ($i = 0; $i < $this->diceAmount; $i++) {
             $dice = new Dice();
-            array_push($this->dices, $dice);
+            $this->dices[] = $dice;
         }
     }
 
