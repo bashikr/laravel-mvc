@@ -2,8 +2,9 @@
 
 namespace Tests\Dice;
 
-use PHPUnit\Framework\TestCase;
 use App\Models\Dice\Game;
+use PhpParser\Node\Arg;
+use PHPUnit\Framework\TestCase;
 
 class GameTest extends TestCase
 {
@@ -15,7 +16,7 @@ class GameTest extends TestCase
      * Construct object and verify that the object has the expected
      * properties. Use only first argument.
      */
-    protected function setUp() : void
+    protected function setUp(): void
     {
         $this->game = new Game($this->playersNumber, $this->dicesNumber);
     }
@@ -112,7 +113,6 @@ class GameTest extends TestCase
         $this->assertFalse($res);
     }
 
-
     public function testPlayerHand()
     {
         $process = $this->game->processPlayersArrays();
@@ -136,5 +136,39 @@ class GameTest extends TestCase
             $this->assertIsInt($res);
         }
         $this->assertGreaterThan(0, $res);
+    }
+
+    public function testOneWhenSaveButtonIsVisibleReturnNone()
+    {
+        $mock = $this->getMockBuilder(\App\Models\Dice\Game::class)
+            ->setConstructorArgs([2, 2])
+            ->onlyMethods(['processPlayersArrays', 'checkIfNumberOneIsInHand'])
+            ->getMock();
+
+        $mock->method('processPlayersArrays')->willReturn([[1, 2], [2, 3]]);
+        $mock->method('checkIfNumberOneIsInHand')
+            ->with(1)
+            ->willReturn(true);
+
+        $one = $mock->oneWhenSaveButtonIsVisible(1);
+
+        $this->assertEquals($one, 'none');
+    }
+
+    public function testOneWhenSaveButtonIsVisibleReturnVisible()
+    {
+        $mock = $this->getMockBuilder(\App\Models\Dice\Game::class)
+            ->setConstructorArgs([2, 2])
+            ->onlyMethods(['processPlayersArrays', 'checkIfNumberOneIsInHand'])
+            ->getMock();
+
+        $mock->method('processPlayersArrays')->willReturn([[1, 2], [2, 3]]);
+        $mock->method('checkIfNumberOneIsInHand')
+            ->with(2)
+            ->willReturn(false);
+
+        $one = $mock->oneWhenSaveButtonIsVisible(2);
+
+        $this->assertEquals($one, 'visible');
     }
 }

@@ -37,7 +37,7 @@ class Game
      *
      * @return array with values of the last roll.
      */
-    public function processPlayersArrays()
+    public function processPlayersArrays() : array
     {
         for ($i = 0; $i < $this->playersNumber; $i++) {
 
@@ -155,12 +155,12 @@ class Game
      *
      * @return boolean
      */
-    public function checkIfNumberOneIsInHand(int $player)
+    public function checkIfNumberOneIsInHand(int $player): bool
     {
         if (in_array(1, $this->playersValuesArray[$player - 1])) {
-            return True;
+            return true;
         };
-        return False;
+        return false;
     }
 
     public function playerHand(int $player)
@@ -266,16 +266,16 @@ class Game
         return $this->oneWhenSaveButtonIsVisible($player);
     }
 
-    public function oneWhenSaveButtonIsVisible(int $player)
+    public function oneWhenSaveButtonIsVisible(int $player): string
     {
-        if ($this->checkIfNumberOneIsInHand($player) === True) {
+        if ($this->checkIfNumberOneIsInHand($player) === true) {
             return 'none';
         }
         return 'visible';
     }
 
 
-    public function playButtonVisibility()
+    public function playButtonVisibility() : string
     {
         if (max($this->playersFinalSum) >= 100) {
             return 'none';
