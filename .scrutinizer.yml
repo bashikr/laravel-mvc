@@ -5,6 +5,15 @@ filter:
     paths: ["app/Models/*", "routes/web.php"]
     excluded_paths: [vendor/*, build/*, app/Models/User.php, "app/Http/Controllers/*"]
 
+tools:
+    php_analyzer:
+        config:
+            metrics_coupling:
+                stable_code:
+                    namespace_prefixes:
+                        - App\Models\Dice
+                        - App\Models\Guess
+
 build:
     project_setup:
         override:
