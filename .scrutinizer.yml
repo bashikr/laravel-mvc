@@ -5,6 +5,9 @@ filter:
     paths: ["app/Models/*", "routes/web.php"]
     excluded_paths: [vendor/*, build/*, app/Models/User.php, "app/Http/Controllers/*"]
 
+tools:
+    php_analyzer: true
+
 build:
     project_setup:
         override:
@@ -17,11 +20,8 @@ build:
         analysis:
               tests:
                 override:
-                  - command: make phpunit
-                    coverage:
-                        file: 'tests.coverage'
-                        format: 'php-clover'
                   - php-scrutinizer-run
+
     tests:
         before:
             - cp .env.scrutinizer .env
