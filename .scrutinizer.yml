@@ -14,6 +14,12 @@ tools:
                         - App\Models\Dice
                         - App\Models\Guess
 
+                    classes:
+                        - App\Models\Dice\Dice
+                        - App\Models\Dice\DiceHand
+                        - App\Models\Dice\DiceResults
+                        - App\Models\Dice\Game
+
 build:
     project_setup:
         override:
