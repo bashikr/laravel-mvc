@@ -17,8 +17,11 @@ build:
         analysis:
               tests:
                 override:
+                  - command: './vendor/bin/phpunit --coverage-clover=tests.coverage'
+                    coverage:
+                        file: 'tests.coverage'
+                        format: 'php-clover'
                   - php-scrutinizer-run
-
     tests:
         before:
             - cp .env.scrutinizer .env
