@@ -136,10 +136,8 @@ class Game
 
         $rep = 0;
         for ($i = 0; $i < $itemsInPlayerSum; $i++) {
-            if ($max) {
-                if ($max == $this->playersHandSum[$i]) {
-                    $rep++;
-                }
+            if ($max && $max == $this->playersHandSum[$i]) {
+                $rep++;
             }
         }
 
@@ -174,15 +172,13 @@ class Game
     {
         $playersAmount = count(/** @scrutinizer ignore-type */ $this->playersArray);
 
-        if ($player <= $playersAmount && $player > 0) {
-            if ($player === $playersAmount) {
-                $this->playerToStart = 1;
-                return $this->playerToStart;
-            } elseif($player !== $playersAmount) {
-                return $this->playerToStart = $player + 1;
-            }
-        }
-        return false;
+        if ($player === $playersAmount) {
+            $this->playerToStart = 1;
+            return $this->playerToStart;
+        } elseif($player < $playersAmount && $player > 0) {
+            $this->playerToStart = $player + 1;
+            return $this->playerToStart;
+        } else return false;
     }
 
     public function returnPlayerToStart()
@@ -216,11 +212,9 @@ class Game
 
     public function savePlayerResults(int $player)
     {
-        if (!array_key_exists($player - 1, $this->playersFinalSum)) {
-            $this->playersFinalSum[$player - 1] = $this->playersRoundsSum[$player - 1];
-        } else {
+        if (array_key_exists($player - 1, $this->playersFinalSum)) {
             $this->playersFinalSum[$player - 1] += $this->playersRoundsSum[$player - 1];
-        }
+        } else $this->playersFinalSum[$player - 1] = $this->playersRoundsSum[$player - 1];
 
         return $this->moveToNextPlayer($player);
     }
