@@ -216,11 +216,10 @@ class Game
 
     public function savePlayerResults(int $player)
     {
-        if (array_key_exists($player - 1, $this->playersFinalSum)) {
-            $this->playersFinalSum[$player - 1] += $this->playersRoundsSum[$player - 1];
-        }
         if (!array_key_exists($player - 1, $this->playersFinalSum)) {
             $this->playersFinalSum[$player - 1] = $this->playersRoundsSum[$player - 1];
+        } else {
+            $this->playersFinalSum[$player - 1] += $this->playersRoundsSum[$player - 1];
         }
 
         return $this->moveToNextPlayer($player);
@@ -245,7 +244,7 @@ class Game
         $res = $this->playersFinalSum;
 
         if ($playersFinalSumCount > 0 && array_key_exists($player - 1, $res) && $res[$player - 1] > 100) {
-                return 'Player ' . $player . ' wins! :)';
+            return 'Player ' . $player . ' wins! :)';
         }
         return 'No winner yet!';
     }

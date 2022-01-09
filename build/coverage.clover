@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1641723677">
-  <project timestamp="1641723677">
+<coverage generated="1641725943">
+  <project timestamp="1641725943">
     <file name="C:\Users\basha\dbwebb-kurser\mvc\me\ci\app\Console\Kernel.php">
       <class name="App\Console\Kernel" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="3" elements="6" coveredelements="4"/>
@@ -413,7 +413,7 @@
     </file>
     <file name="C:\Users\basha\dbwebb-kurser\mvc\me\ci\app\Models\Dice\Game.php">
       <class name="App\Models\Dice\Game" namespace="global">
-        <metrics complexity="48" methods="17" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="110" coveredstatements="87" elements="127" coveredelements="97"/>
+        <metrics complexity="47" methods="17" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="109" coveredstatements="85" elements="126" coveredelements="94"/>
       </class>
       <line num="23" type="method" name="__construct" visibility="public" complexity="2" crap="2" count="12"/>
       <line num="25" type="stmt" count="12"/>
@@ -459,7 +459,7 @@
       <line num="116" type="stmt" count="5"/>
       <line num="118" type="stmt" count="5"/>
       <line num="119" type="stmt" count="5"/>
-      <line num="132" type="method" name="firstPlayer" visibility="public" complexity="5" crap="5" count="2"/>
+      <line num="132" type="method" name="firstPlayer" visibility="public" complexity="5" crap="5.01" count="2"/>
       <line num="134" type="stmt" count="2"/>
       <line num="135" type="stmt" count="2"/>
       <line num="137" type="stmt" count="2"/>
@@ -469,9 +469,9 @@
       <line num="141" type="stmt" count="2"/>
       <line num="146" type="stmt" count="2"/>
       <line num="147" type="stmt" count="2"/>
-      <line num="148" type="stmt" count="1"/>
-      <line num="150" type="stmt" count="1"/>
-      <line num="151" type="stmt" count="1"/>
+      <line num="148" type="stmt" count="0"/>
+      <line num="150" type="stmt" count="2"/>
+      <line num="151" type="stmt" count="2"/>
       <line num="158" type="method" name="checkIfNumberOneIsInHand" visibility="public" complexity="2" crap="2.15" count="2"/>
       <line num="160" type="stmt" count="2"/>
       <line num="161" type="stmt" count="0"/>
@@ -508,41 +508,40 @@
       <line num="210" type="stmt" count="2"/>
       <line num="212" type="stmt" count="0"/>
       <line num="215" type="stmt" count="0"/>
-      <line num="217" type="method" name="savePlayerResults" visibility="public" complexity="3" crap="3.07" count="2"/>
+      <line num="217" type="method" name="savePlayerResults" visibility="public" complexity="2" crap="2.06" count="2"/>
       <line num="219" type="stmt" count="2"/>
-      <line num="220" type="stmt" count="0"/>
-      <line num="222" type="stmt" count="2"/>
-      <line num="223" type="stmt" count="2"/>
-      <line num="226" type="stmt" count="2"/>
-      <line num="229" type="method" name="playersFinalSum" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="220" type="stmt" count="2"/>
+      <line num="222" type="stmt" count="0"/>
+      <line num="225" type="stmt" count="2"/>
+      <line num="228" type="method" name="playersFinalSum" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="230" type="stmt" count="0"/>
       <line num="231" type="stmt" count="0"/>
-      <line num="232" type="stmt" count="0"/>
+      <line num="233" type="stmt" count="0"/>
       <line num="234" type="stmt" count="0"/>
       <line num="235" type="stmt" count="0"/>
       <line num="236" type="stmt" count="0"/>
-      <line num="237" type="stmt" count="0"/>
-      <line num="239" type="stmt" count="0"/>
-      <line num="242" type="method" name="winner" visibility="public" complexity="4" crap="4.13" count="1"/>
+      <line num="238" type="stmt" count="0"/>
+      <line num="241" type="method" name="winner" visibility="public" complexity="4" crap="4.13" count="1"/>
+      <line num="243" type="stmt" count="1"/>
       <line num="244" type="stmt" count="1"/>
-      <line num="245" type="stmt" count="1"/>
-      <line num="247" type="stmt" count="1"/>
-      <line num="248" type="stmt" count="0"/>
-      <line num="250" type="stmt" count="1"/>
-      <line num="253" type="method" name="saveButtonVisibility" visibility="public" complexity="3" crap="12" count="0"/>
+      <line num="246" type="stmt" count="1"/>
+      <line num="247" type="stmt" count="0"/>
+      <line num="249" type="stmt" count="1"/>
+      <line num="252" type="method" name="saveButtonVisibility" visibility="public" complexity="3" crap="12" count="0"/>
+      <line num="254" type="stmt" count="0"/>
       <line num="255" type="stmt" count="0"/>
       <line num="256" type="stmt" count="0"/>
-      <line num="257" type="stmt" count="0"/>
-      <line num="260" type="stmt" count="0"/>
-      <line num="263" type="stmt" count="0"/>
-      <line num="266" type="method" name="oneWhenSaveButtonIsVisible" visibility="public" complexity="2" crap="2" count="2"/>
-      <line num="268" type="stmt" count="2"/>
-      <line num="269" type="stmt" count="1"/>
-      <line num="271" type="stmt" count="1"/>
-      <line num="275" type="method" name="playButtonVisibility" visibility="public" complexity="2" crap="2.15" count="1"/>
-      <line num="277" type="stmt" count="1"/>
-      <line num="278" type="stmt" count="0"/>
-      <line num="280" type="stmt" count="1"/>
-      <metrics loc="282" ncloc="231" classes="1" methods="17" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="110" coveredstatements="87" elements="127" coveredelements="97"/>
+      <line num="259" type="stmt" count="0"/>
+      <line num="262" type="stmt" count="0"/>
+      <line num="265" type="method" name="oneWhenSaveButtonIsVisible" visibility="public" complexity="2" crap="2" count="2"/>
+      <line num="267" type="stmt" count="2"/>
+      <line num="268" type="stmt" count="1"/>
+      <line num="270" type="stmt" count="1"/>
+      <line num="274" type="method" name="playButtonVisibility" visibility="public" complexity="2" crap="2.15" count="1"/>
+      <line num="276" type="stmt" count="1"/>
+      <line num="277" type="stmt" count="0"/>
+      <line num="279" type="stmt" count="1"/>
+      <metrics loc="281" ncloc="230" classes="1" methods="17" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="109" coveredstatements="85" elements="126" coveredelements="94"/>
     </file>
     <file name="C:\Users\basha\dbwebb-kurser\mvc\me\ci\app\Models\Guess\Guess.php">
       <class name="App\Models\Guess\Guess" namespace="global">
@@ -648,6 +647,6 @@
       <line num="62" type="stmt" count="1"/>
       <metrics loc="63" ncloc="38" classes="1" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="14" elements="17" coveredelements="15"/>
     </file>
-    <metrics files="39" loc="1680" ncloc="1215" classes="26" methods="63" coveredmethods="34" conditionals="0" coveredconditionals="0" statements="350" coveredstatements="163" elements="413" coveredelements="197"/>
+    <metrics files="39" loc="1679" ncloc="1214" classes="26" methods="63" coveredmethods="33" conditionals="0" coveredconditionals="0" statements="349" coveredstatements="161" elements="412" coveredelements="194"/>
   </project>
 </coverage>
