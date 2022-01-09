@@ -32,7 +32,8 @@ class GuessForm
 
             $request->session()->put('res', null);
             try {
-                $makeGuess = $guess->makeGuess($guessNumber);
+                $makeGuess = $guess->makeGuess($guessNumber, new GuessException("The given number is out of range."));
+
                 $request->session()->put('makeGuess', $makeGuess);
             } catch (GuessException $e) {
                 $res = '<p style="color:red; font-weight: 900;">Warning: </p>' . $e->getMessage();

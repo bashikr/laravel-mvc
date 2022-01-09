@@ -62,7 +62,7 @@ class GuessTest extends TestCase
     public function testMakeGuessRaiseExeption()
     {
         $this->expectException(GuessException::class);
-        $res = $this->game->makeGuess(101);
+        $res = $this->game->makeGuess(101, new GuessException("The given number is out of range."));
         $this->assertEquals($res, 'The given number is out of range');
     }
 

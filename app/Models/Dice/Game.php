@@ -242,13 +242,10 @@ class Game
     public function winner(int $player)
     {
         $playersFinalSumCount = count($this->playersFinalSum);
-        if ($playersFinalSumCount > 0) {
-            if (array_key_exists($player - 1, $this->playersFinalSum)) {
-                if ($this->playersFinalSum[$player - 1] < 100) {
-                    return 'No winner yet!';
-                }
+        $res = $this->playersFinalSum;
+
+        if ($playersFinalSumCount > 0 && array_key_exists($player - 1, $res) && $res[$player - 1] > 100) {
                 return 'Player ' . $player . ' wins! :)';
-            }
         }
         return 'No winner yet!';
     }
